@@ -11,6 +11,12 @@ describe("Airport", function() {
 
   it("can land planes", function() {
     airport.land('PLANE');
-    expect(airport.planes).toEqual("PLANE");
+    expect(airport.planes).toEqual(["PLANE"]);
+  });
+
+  it("can takeoff plane", function() {
+    airport.land('plane')
+    airport.takeoff('plane')
+    expect(airport.planes).toEqual([])
   });
 });
