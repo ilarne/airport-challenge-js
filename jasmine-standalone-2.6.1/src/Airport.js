@@ -1,22 +1,33 @@
 function Airport() {
-  this.planes = []
+  this._planes = [];
 };
 
 Airport.prototype.land = function(plane) {
-  this.planes.push(plane);
-  return "The plane has landed!";
+  if (this._planes.length < 10) {
+    this._planes.push(plane);
+    return "The plane landed!";
+  } else {
+    throw new Error('Oops, hangar full.');
+  };
+};
+
+Airport.prototype.planesArray = function() {
+  return this._planes;
 };
 
 Airport.prototype.takeoff = function(plane) {
-    this.planes.pop(plane);
+  if (this._planes.length > 0) {
+    this._planes.pop(plane);
     return "The plane took off!";
+  } else {
+    throw ('No planes here.');
+  };
 };
-
 
 var airport = new Airport();
 var plane = new Plane();
 
-airport.land(plane);
-airport.land(plane);
+
+airport.takeoff(plane);
 
 console.log(airport);

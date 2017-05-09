@@ -13,17 +13,26 @@ describe("Airport", function() {
 
   it("can land", function() {
     airport.land('PLANE');
-    expect(airport.planes).toEqual(["PLANE"]);
+    expect(airport.planesArray()).toEqual(["PLANE"]);
   });
 
   it("can takeoff", function() {
-    airport.land('plane')
-    airport.takeoff('plane')
-    expect(airport.planes).toEqual([])
+    airport.land(plane)
+    airport.takeoff(plane)
+    expect(airport.planesArray()).toEqual([])
   });
 
   it("puts a plane into the hangar", function() {
     airport.land(plane)
-    expect(airport.planes).toEqual([plane])
+    expect(airport.planesArray()).toEqual([plane])
   });
+
+  it("throws an error if try to takeoff from empty hangar", function() {
+    expect(function(){airport.takeoff(plane)}).toThrow('No planes here.');
+  });
+
+  // it("throws an error if try to takeoff from empty hangar", function() {
+  //   airport.land(plane) * 11
+  //   expect(airport.takeoff(plane)).toThrow(new Error('Oops, hangar full.'));
+  // });
 });
