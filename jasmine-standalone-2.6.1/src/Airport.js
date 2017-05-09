@@ -8,6 +8,15 @@ Airport.prototype.land = function(plane) {
 };
 
 Airport.prototype.takeoff = function(plane) {
-  this.planes.pop(plane);
-  return "The plane took off!";
+    this.planes.pop(plane);
+    return "The plane took off!";
 };
+
+
+var airport = new Airport();
+var plane = new Plane();
+
+airport.land(plane);
+airport.land(plane);
+
+console.log(airport);
