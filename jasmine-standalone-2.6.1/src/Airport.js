@@ -7,7 +7,7 @@ Airport.prototype.land = function(plane) {
     this._planes.push(plane);
     return "The plane landed!";
   } else {
-    throw new Error('Oops, hangar full.');
+    throw ('Oops, hangar full.');
   };
 };
 

@@ -31,8 +31,10 @@ describe("Airport", function() {
     expect(function(){airport.takeoff(plane)}).toThrow('No planes here.');
   });
 
-  // it("throws an error if try to takeoff from empty hangar", function() {
-  //   airport.land(plane) * 11
-  //   expect(airport.takeoff(plane)).toThrow(new Error('Oops, hangar full.'));
-  // });
+  it("throws an error if try to land into full hangar", function() {
+    for (i = 0; i < 10; i++) {
+       airport.land(plane)
+      }
+    expect(function(){airport.land(plane)}).toThrow('Oops, hangar full.');
+  });
 });
