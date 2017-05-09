@@ -12,13 +12,18 @@ Airport.prototype.land = function(plane) {
   };
 };
 
-Airport.prototype.planesArray = function() {
-  return this._planes;
-};
+// Airport.prototype.planesArray = function() {
+//   return this._planes;
+// }; ------> is there a reason for these reader functions over reading directly from object?
 
-Airport.prototype._setCapacity = function(number) {
-   this._hangarCapacity = number;
-};
+// Airport.prototype._hangarCapacity = function() {
+//    return this._hangarCapacity;
+// };
+
+// Airport.prototype._setCapacity = function(number) {
+//    this._hangarCapacity = number;
+// }; --> you don't even need this?
+// ------> you can just write airport._hangarCapacity = 15; ??? Convention?
 
 Airport.prototype.takeoff = function(plane) {
   if (this._planes.length > 0) {
@@ -34,4 +39,4 @@ var plane = new Plane();
 
 airport.land(plane);
 
-console.log(airport);
+console.log(airport._planes);
