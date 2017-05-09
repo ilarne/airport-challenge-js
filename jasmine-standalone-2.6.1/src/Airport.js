@@ -1,9 +1,10 @@
 function Airport() {
   this._planes = [];
+  this._hangarCapacity = 10
 };
 
 Airport.prototype.land = function(plane) {
-  if (this._planes.length < 10) {
+  if (this._planes.length < this._hangarCapacity) {
     this._planes.push(plane);
     return "The plane landed!";
   } else {
@@ -13,6 +14,10 @@ Airport.prototype.land = function(plane) {
 
 Airport.prototype.planesArray = function() {
   return this._planes;
+};
+
+Airport.prototype._setCapacity = function(number) {
+   this._hangarCapacity = number;
 };
 
 Airport.prototype.takeoff = function(plane) {
@@ -27,7 +32,6 @@ Airport.prototype.takeoff = function(plane) {
 var airport = new Airport();
 var plane = new Plane();
 
-
-airport.takeoff(plane);
+airport.land(plane);
 
 console.log(airport);
